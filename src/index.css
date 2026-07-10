@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #f8fafc;
+  scroll-behavior: smooth;
+  background: radial-gradient(circle at 18% 20%, #7b6dff38, #0000 28%), radial-gradient(circle at 80% 15%, #89c2ff1f, #0000 24%), radial-gradient(circle at 50% 80%, #6e63f62e, #0000 32%), #0a0f24;
+  scrollbar-width: thin;
+  scrollbar-color: #6366f1 #0f1629;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}

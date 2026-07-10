@@ -1,0 +1,165 @@
+/* ─── Hero Section Base ─────────────────────────────────────── */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      700px circle at 76% 45%,
+      rgba(118,120,255,.16),
+      transparent 65%
+    ),
+
+    radial-gradient(
+      450px circle at 88% 60%,
+      rgba(60,70,170,.08),
+      transparent 70%
+    ),
+
+    linear-gradient(
+      90deg,
+      #10162F 0%,
+      #111733 55%,
+      #0D132C 100%
+    );
+}
+
+
+/* Ghost watermark knight (large, bottom-center) */
+.hero-watermark {
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* ─── Floating Particles ─────────────────────────────────────── */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: var(--p-opacity, 0.3);
+  }
+
+  25% {
+    transform: translateY(-12px) rotate(5deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(-3deg);
+    opacity: calc(var(--p-opacity, 0.3) * 0.7);
+  }
+
+  75% {
+    transform: translateY(-18px) rotate(4deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: var(--p-opacity, 0.3);
+  }
+}
+
+.hero-particle {
+  animation: floatParticle linear infinite;
+  will-change: transform, opacity;
+}
+
+/* ─── CTA Button Glow & Shine ────────────────────────────────── */
+.btn-glow {
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-glow:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 24px 48px rgba(99, 102, 241, 0.4) !important;
+}
+
+.btn-glow:active {
+  transform: translateY(0px) scale(0.99);
+}
+
+/* Shine sweep animation */
+@keyframes ctaShine {
+  0% {
+    left: -80%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  50% {
+    left: 120%;
+    opacity: 0.6;
+  }
+
+  51% {
+    opacity: 0;
+  }
+
+  100% {
+    left: 120%;
+    opacity: 0;
+  }
+}
+
+.cta-shine {
+  background: linear-gradient(105deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.22) 50%,
+      transparent 80%);
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -80%;
+  animation: ctaShine 3.5s ease-in-out infinite;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ─── Board Card 3D hover ────────────────────────────────────── */
+.hero-board-card-inner {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.hero-board-card-inner:hover {
+  transform: rotateX(2deg) rotateY(-3deg) scale(1.01);
+  box-shadow: 0 32px 64px rgba(99, 102, 241, 0.2);
+}
+
+/* ─── Board glow on hover ───────────────────────────────────── */
+.board-glow-container {
+  transition: box-shadow 0.4s ease;
+}
+
+.board-glow-container:hover {
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.2), inset 0 0 20px rgba(99, 102, 241, 0.05);
+}
+
+/* ─── Gradient text fallback for older browsers ─────────────── */
+@supports not (-webkit-background-clip: text) {
+  .hero-gradient-text {
+    color: #818cf8 !important;
+  }
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-particle,
+  .cta-shine,
+  .play-char {
+    animation: none !important;
+    transition: none !important;
+  }
+}

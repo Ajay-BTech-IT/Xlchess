@@ -1,0 +1,28 @@
+.global-animated-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.global-piece {
+  position: absolute;
+  bottom: -150px;
+  color: #1a2238; /* dark bluish-black for silhouettes */
+  animation-name: globalFloat;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+
+@keyframes globalFloat {
+  0% {
+    transform: translateY(0) translateX(0) rotate(var(--start-rotate, 0deg));
+  }
+  100% {
+    transform: translateY(-120vh) translateX(var(--drift, 0px)) rotate(var(--end-rotate, 0deg));
+  }
+}
