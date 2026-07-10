@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xlchess-ajay.vercel.app/sitemap.xml
